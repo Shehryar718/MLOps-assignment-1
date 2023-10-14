@@ -1,0 +1,5 @@
+torch
+torchvision
+pytest
+flake8
+flask
