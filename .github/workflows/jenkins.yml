@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Trigger Jenkins Build
         run: |
-          curl -X POST https://50f2-39-38-247-104.ngrok-free.app/job/MLOps/build \
+          curl -X POST https://4593-39-38-244-3.ngrok-free.app/job/MLOps/build \
           -u ${{ secrets.JENKINS_USERNAME }}:${{ secrets.JENKINS_API_TOKEN }}
