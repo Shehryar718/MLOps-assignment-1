@@ -14,6 +14,7 @@ pipeline {
                 sh 'sudo /usr/local/bin/docker login -u $usr -p $pass | echo "Shehryar123."'
               }
         }
+        
         stage('Build and Push Docker Image') {
             steps {
                 sh 'sudo /usr/local/bin/docker build -t mlops:assignment-1  . | echo "Shehryar123."'
