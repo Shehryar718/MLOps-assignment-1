@@ -9,9 +9,14 @@ pipeline {
         }
 
         stage('Logging into Docker hub') {
-            steps {
-                sh "sudo /usr/local/bin/docker login -u shehryar718 -p **** | echo '****'"
-            }
+
+            withCredentials([string(credentialsId: 'docker-hub-credentials', Username: 'usr', Password: 'pass')]) {
+                sh 'sudo /usr/local/bin/docker login -u $usr -p $pass | echo "Shehryar718."'
+              }
+                        
+            // steps {
+            //     sh "sudo /usr/local/bin/docker login -u shehryar718 -p **** | echo '****'"
+            // }
         }
         stage('Build and Push Docker Image') {
             steps {
