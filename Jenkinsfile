@@ -22,4 +22,20 @@ pipeline {
             }
         }
     }
+    post {
+        failure {
+            emailext(
+                subject: "Failed: ${currentBuild.fullDisplayName}",
+                body: "The build has failed. Please check the console output at ${BUILD_URL} to diagnose the issue.",
+                to: 'hafizshehryar88@gmail.com',
+            )
+        }
+        success {
+            emailext(
+                subject: "Successful: ${currentBuild.fullDisplayName}",
+                body: "The build was successful. You can access the artifacts at ${BUILD_URL}",
+                to: 'hafizshehryar88@gmail.com',
+            )
+        }
+    }
 }
